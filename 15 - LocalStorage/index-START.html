@@ -36,7 +36,7 @@
     <ul class="plates">
       <li>Loading Tapas...</li>
     </ul>
-    <!-- by default page reloads on submit, send data to server-side  -->
+    <!-- by default page reloads on submit, send data to server-side, prevent default action  -->
     <form class="add-items">
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
@@ -91,7 +91,7 @@
       populateList(items, itemsList)
     }
 
-    function unCheckAll(e) {
+    function unCheckAll() {
       console.log(items)
       items.forEach((item, index) => {
         items[index].done = false;
@@ -101,7 +101,7 @@
 
     }
 
-    function checkAll(e) {
+    function checkAll() {
       items.forEach((item, index) => {
         items[index].done = true;
       })
@@ -116,10 +116,9 @@
     itemsList.addEventListener('click', toggleDone)
 
     populateList(items, itemsList)
-
-    // DONE
   </script>
 
+  <!-- DONE -->
 
 </body>
 
