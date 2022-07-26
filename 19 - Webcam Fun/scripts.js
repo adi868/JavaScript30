@@ -113,3 +113,5 @@ getVideo();
 
 
 video.addEventListener('canplay', paintToCanvas)
+
+// DONE
