@@ -239,7 +239,6 @@
     const nav = document.querySelector('.top');
 
     function handleEnter() {
-      console.log('enter!')
       // add class to list item
       this.classList.add('trigger-enter')
       setTimeout(() => {
@@ -252,7 +251,6 @@
 
       // get the current dropdown mouse overed
       const dropdown = this.querySelector('.dropdown');
-      console.log(dropdown);
       // when nested elements, boundingClientRect does not account for it, need to offset it with navCoords
       const dropdownCoords = dropdown.getBoundingClientRect();
       console.log(dropdownCoords)
@@ -271,7 +269,6 @@
     }
 
     function handleLeave() {
-      console.log('leave')
       this.classList.remove('trigger-enter', 'trigger-enter-active')
       background.classList.remove('open');
     }
