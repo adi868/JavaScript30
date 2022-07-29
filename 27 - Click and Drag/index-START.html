@@ -47,7 +47,7 @@
       slider.classList.add('active');
       // offset location if there is margin for example that is between the page and the slider
       startX = e.pageX - slider.offsetLeft;
-      console.log(startX);
+      scrollLeft = slider.scrollLeft;
     })
     slider.addEventListener('mouseleave', () => {
       isDown = false;
@@ -57,13 +57,17 @@
       isDown = false;
       slider.classList.remove('active')
     })
-    slider.addEventListener('mousemove', () => {
+    slider.addEventListener('mousemove', (e) => {
       // if isDown is false, then end the function
       if (!isDown) return //stop the fn from running
-      console.count(isDown)
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 3;
+      slider.scrollLeft = scrollLeft - walk;
     })
   </script>
 
 </body>
+<!-- DONE, review -->
 
 </html>
