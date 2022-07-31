@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll('[data-time]')
 function timer(seconds) {
     // clear any existing timers
     clearInterval(countdown)
-    // time in milliseconds, 10000 ms in 1 sec
+    // time in milliseconds, 1000 ms in 1 sec
     const now = Date.now();
     const then = now + seconds * 1000;
     displayTimeLeft(seconds);
