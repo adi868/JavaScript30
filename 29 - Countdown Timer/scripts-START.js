@@ -12,8 +12,6 @@ function timer(seconds) {
     displayTimeLeft(seconds);
     displayEndTime(then)
 
-
-
     countdown = setInterval(() => {
         // convert to seconds from ms
         const secondsLeft = Math.round((then - Date.now()) / 1000);
@@ -59,4 +57,4 @@ document.customForm.addEventListener('submit', function (e) {
     this.reset();
 })
 
-// DONE, review
+// DONE
