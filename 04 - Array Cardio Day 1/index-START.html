@@ -37,7 +37,7 @@
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 
-    //Array methods. Each of these assign into a variable the return value
+    //JS Array methods. Each of these assign into a variable the return value
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's, can return less than the full number of items
@@ -49,7 +49,7 @@
     console.table(fifteen)
 
     // Array.prototype.map()
-    //like a factory, takes in and returns the same amount of items, just does something to it
+    //like a factory, stamp it somehow, takes in and returns the same amount of items, just does something to it
     // 2. Give us an array of the inventors first and last names
     const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
     console.log(fullNames)
@@ -70,7 +70,7 @@
     console.table(ordered)
 
     // Array.prototype.reduce()
-    //do some sort of calculation or addition
+    //loop through items, do some sort of calculation or addition
     // 4. How many years did all the inventors live all together?
 
     // for(var i = 0; i < inventors.length; i++){
@@ -98,16 +98,44 @@
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    // const category = document.querySelector('.mw-category');
+    // //convert nodelist into an array so can use map
+    // const links = Array.from(category.querySelectorAll('a'));
+
+    // const de = links
+    // .map(link => link.textContent)
+    // .filter(streetName => streetName.includes('de'))
+    // console.log(de)
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const alpha = people.sort((lastOne, nextOne) => {
+      //destructure array into separate variables (first name and last name separate)
+      const [aLast, aFirst] = lastOne.split(', ')
+      const [bLast, bFirst] = nextOne.split(', ')
+      return aLast > bLast ? 1 : -1;
+    });
+
+    console.log(alpha)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
+    const transportation = data.reduce(function (obj, item) {
+      if (!obj[item]) {
+        obj[item] = 0;
+        //set initial 0
+      }
+      obj[item]++;
+      return obj;
+    }, {})
+    console.log(transportation)
+    //start with blank object inside of the function
+
   </script>
 </body>
+<!-- DONE, review -->
 
 </html>
