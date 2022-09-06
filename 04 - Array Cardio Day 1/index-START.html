@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪</title>
 </head>
+
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
@@ -34,18 +36,52 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
+
+    //Array methods
+
     // Array.prototype.filter()
-    // 1. Filter the list of inventors for those who were born in the 1500's
+    // 1. Filter the list of inventors for those who were born in the 1500's, can return less than the full number of items
+    const fifteen = inventors.filter(inventor => {
+      if (inventor.year >= 1500 && inventor.year < 1600) {
+        return true; //return true means keep it
+      }
+    });
+    console.table(fifteen)
 
     // Array.prototype.map()
+    //like a factory, takes in and returns the same amount of items, just does something to it
     // 2. Give us an array of the inventors first and last names
+    const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+    console.log(fullNames)
 
     // Array.prototype.sort()
+    //return 1 and negative 1 to bubble the items up or down in the array
     // 3. Sort the inventors by birthdate, oldest to youngest
+    // const ordered = inventors.sort(function (a, b) {
+    //   if (a.year > b.year) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+    //   }
+    // })
+
+    //using ternary operator
+    const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1)
+    console.table(ordered)
 
     // Array.prototype.reduce()
+    //do some sort of calculation or addition
     // 4. How many years did all the inventors live all together?
+
+    // for(var i = 0; i < inventors.length; i++){
+    //   totalYears += inventors[i].year
+    // }
+
+    const totalYears = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year)
+    }, 0)
+    // zero at the end sets the initial total
+    console.log(totalYears);
 
     // 5. Sort the inventors by years lived
 
@@ -58,8 +94,9 @@
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
   </script>
 </body>
+
 </html>
